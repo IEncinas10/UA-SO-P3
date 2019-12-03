@@ -1,0 +1,16 @@
+0 uno 1800 2
+0 two 1800 3
+0 three 1000 3
+0 four 1800 3
+1 five 200 2
+2 six 250 5
+3 seven 750 4
+5 eight 1500 4
+5 nine 5
+5 ten 6
+6 eleven 3
+6 twelve 4
+6 thirteen 2
+7 fourteen 2
+8 asdasf 1500 30
+16 twenty 500 6

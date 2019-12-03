@@ -285,7 +285,6 @@ class MemoryManager {
         }
 
         void allocateProcess(Process &p) {
-            /* Show error message? */
             if(p.memorySize > maxMemory || p.memorySize <= 0)
                 return;
 

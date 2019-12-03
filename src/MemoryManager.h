@@ -160,9 +160,6 @@ class MemoryManager {
             }
         }
 
-        /*
-         * IDK ernesto add some comments i cant explain myself 0iq
-         */
         void updateTime() {
             char response;
             cout << "Do you want to advance [a] or go back [b] one second in time? [a/b]" << endl;

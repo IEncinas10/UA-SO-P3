@@ -75,7 +75,7 @@ class MemoryManager {
 
         /*
          * Default memory size = 2000
-         * Default allocation algorithm = First fit
+         * Default allocation algorithm = Best fit
          */
         MemoryManager(int _maxMemory = 2000, Alloc _allocationAlgorithm = Alloc::Bf) :
             maxMemory(_maxMemory), allocationAlgorithm(_allocationAlgorithm) {
@@ -87,6 +87,7 @@ class MemoryManager {
                 waiting.push_back(emptyList);
                 toArrive.push_back(emptyList);
 
+                /* We add extra nodes to simplify the algorithms */
                 char head_name[] = "Head";
                 char tail_name[] = "Tail";
                 Process process_head(0, 0, -1, head_name, -1, 0, false); 
@@ -213,29 +214,23 @@ class MemoryManager {
         size_t updateWaitingProcesses(){
             size_t procNum = 0;
             for(std::list<Process>::iterator itr = waiting[time].begin(); itr != waiting[time].end(); itr++) {
-                /*
-                 *  Notas:
-                 *      - Podríamos encapsular el switch en una función tipo
-                 *        void introduceProcess(Process) que haga la selección
-                 *        del algoritmo solo (module g00d)
-                 */
                 switch(allocationAlgorithm) {
-                    case Ff:
-                        if(firstFit(*(itr), false)) {
-                            itr = waiting[time].erase(itr);
-                            itr--;
-                            procNum++;
-                        }
-                        break;
-                    case Bf:
-                        if(bestFit(*(itr), false)) {
-                            itr = waiting[time].erase(itr);
-                            itr--;
-                            procNum++;
-                        }
-                        break;
-                    default:
-                        break;
+                case Ff:
+                    if(firstFit(*(itr), false)) {
+                        itr = waiting[time].erase(itr);
+                        itr--;
+                        procNum++;
+                    }
+                    break;
+                case Bf:
+                    if(bestFit(*(itr), false)) {
+                        itr = waiting[time].erase(itr);
+                        itr--;
+                        procNum++;
+                    }
+                    break;
+                default:
+                    break;
                 }
             }
             return procNum;
@@ -256,18 +251,18 @@ class MemoryManager {
                 }
 
                 switch(allocationAlgorithm) {
-                    case Ff:
-                        if(firstFit(*(itr)))
-                            procNum++;
-                        itr = toArrive[time].erase(itr);
-                        break;
-                    case Bf:
-                        if(bestFit(*(itr)))
-                            procNum++;
-                        itr = toArrive[time].erase(itr);
-                        break;
-                    default:
-                        break;
+                case Ff:
+                    if(firstFit(*(itr)))
+                        procNum++;
+                    itr = toArrive[time].erase(itr);
+                    break;
+                case Bf:
+                    if(bestFit(*(itr)))
+                        procNum++;
+                    itr = toArrive[time].erase(itr);
+                    break;
+                default:
+                    break;
                 }
             }
             return procNum;
@@ -400,7 +395,7 @@ class MemoryManager {
         bool bestFit(Process &p, bool newProcess = true) {
             std::list<Process>::iterator insertItr = memory[time].begin();
             int size = -1;
-            // El --memory.end() es un intento xdxd
+
             for(std::list<Process>::iterator itr = memory[time].begin(); itr != (--memory[time].end()); itr++) {
                 int freeSize = 0;
                 int nextStartingAddr = (*(++itr)).startingAddress;

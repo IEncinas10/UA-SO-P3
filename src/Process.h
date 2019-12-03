@@ -42,7 +42,6 @@ class Process {
         char      name[MAX_NAME];
         bool      running;
 
-        /* Hay que tener cuidado con estos procesos con valores negativos */
         Process() : ID(-1), arrivalTime(-1), startingAddress(-1), memorySize(-1), remainingTime(-1), running(false) {}
 
         Process(const int _arrivalTime, int _memorySize, int _remainingTime, char* _name, 

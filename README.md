@@ -64,4 +64,4 @@ the algorithm, you will see no changes in the memory layout.
 ![Alt text](assets/gui.png?raw=true "GUI")
 
 #### Disclaimer
-The GUI code pretty bad and will probably stay that way. It is something we did because it is mandatory and trying to make it less disgusting is pretty annoying. We're sorry <3
+The GUI code is pretty bad and will probably stay that way. It is something we did because it is mandatory and trying to make it less disgusting is pretty annoying. We're sorry <3

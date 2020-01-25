@@ -58,6 +58,9 @@ the algorithm, you will see no changes in the memory layout.
 
 ### Examples
 
+![alt text](https://github.com/IEncinas10/UA-SO-P3/blob/master/assets/example.gif "Example execution")
+
+
 ![Alt text](assets/gui.png?raw=true "GUI")
 
 #### Disclaimer

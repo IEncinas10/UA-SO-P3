@@ -1,4 +1,5 @@
 #  Operating Systems - Third assignment
+![alt text](https://github.com/IEncinas10/UA-SO-P3/blob/master/assets/example.gif "Example execution")
 ## Goal
 
 The goal is to simulate memory management with dynamic partitions. It will offer a menu with the option to partition
@@ -55,13 +56,6 @@ IMPORTANT: If you go backwards in time and click 'Run', you will be
 shown the previously calculated allocations. If you go back and change
 the algorithm, you will see no changes in the memory layout.
 
-
-### Examples
-
-![alt text](https://github.com/IEncinas10/UA-SO-P3/blob/master/assets/example.gif "Example execution")
-
-
-![Alt text](assets/gui.png?raw=true "GUI")
 
 #### Disclaimer
 The GUI code is pretty bad and will probably stay that way. It is something we did because it is mandatory and trying to make it less disgusting is pretty annoying. We're sorry <3
